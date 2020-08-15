@@ -2,6 +2,7 @@
   <div :id="team + 'GameMap'" />
 </template>
 <script>
+import colors from './color.js'
 import * as d3 from 'd3'
 export default {
   name: 'GameMap',
@@ -19,7 +20,7 @@ export default {
     // Configuration vars
     const X_TICKS = 10
     const CELL_SIZE = 40
-    const MARGIN = { top: 20, right: 20, bottom: 0, left: 110 }
+    const MARGIN = { top: 20, right: 0, bottom: 0, left: 0 }
     var WIDTH = 750 - MARGIN.right - MARGIN.left
     var HEIGHT = 400 - MARGIN.top - MARGIN.bottom
 
@@ -74,7 +75,10 @@ export default {
       })
       .attr('x', function (d, i) { return xScale(i % X_TICKS) })
       .attr('fill', function (d, i) {
-        if (d.win_status === 1) { console.log(i); return '#ccc' } else { return '#000' }
+        return colors[d.team_name].main
+      })
+      .attr('fill-opacity', function (d, i) {
+        if (d.win_status === 0) { return 0.5 } else { return 1.0 }
       })
     // svg.append('g')
     //   .attr('class', 'y axis')
