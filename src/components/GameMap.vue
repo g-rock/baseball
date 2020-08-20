@@ -2,6 +2,7 @@
   <div :id="team + 'GameMap'" />
 </template>
 <script>
+/* eslint-disable */
 import colors from './color.js'
 import * as d3 from 'd3'
 export default {
@@ -46,21 +47,29 @@ export default {
       .attr('width', WIDTH + MARGIN.left + MARGIN.right)
       .attr('height', HEIGHT + MARGIN.top + MARGIN.bottom)
       .append('g')
-      .attr('transform', 'translate(' + MARGIN.left + ',' + MARGIN.top + ')')
 
-    // Create an SVG group Element for the Axis elements and call the xAxis function
-    svg.append('g')
+    svg.append('text')
+      .attr('class', 'title')
+      .attr('x', 0)
+      .attr('y', MARGIN.top)
+      .attr('font-family', 'sans-serif')
+      .attr('fill', colors[this.team].main)
+      .text(this.team)
+
+    var gameGroup = svg.append('g')
+      .attr('transform', 'translate(' + MARGIN.left + ',' + MARGIN.top * 2 + ')')
+
+    // Create an svg group Element for the Axis elements and call the xAxis function
+    gameGroup.append('g')
       .attr('class', 'axis')
       .call(xAxis)
 
-    svg.append('g')
+    gameGroup.append('g')
       .attr('class', 'axis')
       .call(yAxis)
 
     // Can we loop over all grouped data (e.g: team games) and create rects for all of them ?
-    console.log(this.team)
-    console.log(this.games)
-    svg.selectAll('rect')
+    gameGroup.selectAll('rect')
       .data(this.games)
       .enter().append('g').append('rect')
       .attr('class', 'cell')
@@ -79,6 +88,12 @@ export default {
       })
       .attr('fill-opacity', function (d, i) {
         if (d.win_status === 0) { return 0.5 } else { return 1.0 }
+      })
+      .style("stroke", function (d, i) {
+        return colors[d.team_name].main
+      })
+      .attr('stroke-opacity', function (d, i) {
+        if (d.win_status === 1) { return 0 } else { return 1.0 }
       })
     // svg.append('g')
     //   .attr('class', 'y axis')

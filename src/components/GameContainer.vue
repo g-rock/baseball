@@ -4,11 +4,6 @@
       v-for="(team, index) in data"
       :key="index"
     >
-      <span
-        :id="team.key + 'Header'"
-      >
-        {{ team.key }}
-      </span>
       <GameMap
         :team="team.key"
         :games="team.values"

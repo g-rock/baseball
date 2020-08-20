@@ -36,8 +36,8 @@ export default {
     minor: '#fff'
   },
   'Detroit Tigers': {
-    main: '#0C2C56',
-    minor: '#FF6600'
+    main: '#0C2340',
+    minor: '#FA4616'
   },
   'Houston Astros': {
     main: '#002D62',
@@ -45,78 +45,78 @@ export default {
   },
   'Kansas City Royals': {
     main: '#004687',
-    minor: '#C09A5B'
+    minor: '#BD9B60'
   },
   'Los Angeles Angels': {
-    main: '#BA0021',
-    minor: '#862633'
+    main: '#003263',
+    minor: '#BA0021'
   },
   'Los Angeles Dodgers': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#005A9C',
+    minor: '#EF3E42'
   },
   'Miami Marlins': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#00A3E0',
+    minor: '#EF3340'
   },
   'Milwaukee Brewers': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#ffc52f',
+    minor: '#12284b'
   },
   'Minnesota Twins': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#002B5C',
+    minor: '#D31145'
   },
   'New York Mets': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#002D72',
+    minor: '#FF5910'
   },
   'New York Yankees': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#003087',
+    minor: '#E4002C'
   },
   'Oakland Athletics': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#003831',
+    minor: '#EFB21E'
   },
   'Philadelphia Phillies': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#E81828',
+    minor: '#002d72'
   },
   'Pittsburgh Pirates': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#FDB827',
+    minor: '#27251F'
   },
   'St. Louis Cardinals': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#C41E3A',
+    minor: '#0C2340'
   },
   'San Diego Padres': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#2F241D',
+    minor: '#FFC425'
   },
   'San Francisco Giants': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#FD5A1E',
+    minor: '#27251F'
   },
   'Seattle Mariners': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#0C2C56',
+    minor: '#005C5C'
   },
   'Tampa Bay Rays': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#092C5C',
+    minor: '#8FBCE6'
   },
   'Texas Rangers': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#003278',
+    minor: '#C0111F'
   },
   'Toronto Blue Jays': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#134A8E',
+    minor: '#1D2D5C'
   },
   'Washington Nationals': {
-    main: '#ccc',
-    minor: '#ccc'
+    main: '#AB0003',
+    minor: '#14225A'
   }
 }
