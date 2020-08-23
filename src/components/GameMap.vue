@@ -21,7 +21,7 @@ export default {
     // Configuration vars
     const X_TICKS = 10
     const CELL_SIZE = 40
-    const MARGIN = { top: 20, right: 0, bottom: 0, left: 0 }
+    const MARGIN = { top: 20, right: 20, bottom: 0, left: 0 }
     var WIDTH = 750 - MARGIN.right - MARGIN.left
     var HEIGHT = 400 - MARGIN.top - MARGIN.bottom
 
@@ -40,7 +40,7 @@ export default {
 
     // --------AXIS-----------
     var xAxis = d3.axisTop().scale(xScale).tickSize(0)
-    var yAxis = d3.axisLeft().scale(yScale).tickSize(0)
+    var yAxis = d3.axisRight().scale(yScale).tickSize(0)
 
     var svg = d3.select(this.$el)
       .append('svg')
@@ -59,14 +59,19 @@ export default {
     var gameGroup = svg.append('g')
       .attr('transform', 'translate(' + MARGIN.left + ',' + MARGIN.top * 2 + ')')
 
-    // Create an svg group Element for the Axis elements and call the xAxis function
-    gameGroup.append('g')
-      .attr('class', 'axis')
-      .call(xAxis)
+    // var xAxisGroup = gameGroup.append('g')
+    //   .attr('class', 'axis')
+    //   .call(xAxis)
 
-    gameGroup.append('g')
+    var yAxisGroup = gameGroup.append('g')
       .attr('class', 'axis')
+      .attr("transform", "translate(" + X_TICKS * CELL_SIZE + ",0)")
       .call(yAxis)
+
+    yAxisGroup.selectAll('text')
+      .each(function(d, i) {
+        return d3.select(this).text((d + 1) * 10)
+      }) 
 
     // Can we loop over all grouped data (e.g: team games) and create rects for all of them ?
     gameGroup.selectAll('rect')
@@ -89,12 +94,11 @@ export default {
       .attr('fill-opacity', function (d, i) {
         if (d.win_status === 0) { return 0.5 } else { return 1.0 }
       })
-      .style("stroke", function (d, i) {
-        return colors[d.team_name].main
-      })
-      .attr('stroke-opacity', function (d, i) {
-        if (d.win_status === 1) { return 0 } else { return 1.0 }
-      })
+      .attr('stroke', '#fff') 
+      .attr('stroke-width', 2)
+      // .attr('stroke-opacity', 0) 
+
+      
     // svg.append('g')
     //   .attr('class', 'y axis')
     //   .call(yAxis)
@@ -118,9 +122,7 @@ export default {
 <style>
   .axis path,
   .axis line {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges;
+    stroke: white;
   }
 
   .axis text {
